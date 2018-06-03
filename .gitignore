@@ -1,1 +1,6 @@
-./.vscode
+# vs code
+/.vscode
+
+# mac os
+/*/.DS_Store
+/.DS_Store
