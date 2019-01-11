@@ -1,4 +1,4 @@
-![Electron](http://www.kindemh.cn/static/main/img/2018-6-3_20-51-38.png)
+![Electron](../../img/public/electron-logo.png)
 
 > 发布自[Kindem的博客](http://www.kindemh.cn/)，欢迎大家转载，但是要注意注明出处
 
@@ -103,7 +103,7 @@ npm install -g create-react-app
 
 你安装create-react-app成功之后，就能直接在WebStorm中使用集成创建项目的方法创建一个React项目，创建项目的时候选择到React App一栏，WebStorm会自动识别到create-react-app以供你创建项目：
 
-![WebStorm创建项目](http://www.kindemh.cn/static/main/img/2018-6-4_0-16-39.png)
+![WebStorm创建项目](../../img/2018/6/6-3-0.png)
 
 第一栏是你项目的位置，自己选一个并且取好项目名即可，第三栏如果报红色错误则说明你的create-react-app工具没能被识别或者没能被安装，请自行检查。
 
@@ -111,7 +111,7 @@ npm install -g create-react-app
 
 等下面的操作全部完成之后，你可以看到项目目录像这样：
 
-![项目结构](http://www.kindemh.cn/static/main/img/2018-6-4_0-20-22.png)
+![项目结构](../../img/2018/6/6-3-1.png)
 
 这时候推荐再安装一个额外的包管理工具-yarn，这个时候我们可以不用使用自己的cmd或者终端了，而可以直接使用WebStorm自带的集成终端，这个终端跟原生终端(cmd)一样，但是会自动进入项目目录下。看上方的菜单：View->Tool Windows->Terminal即可调出，在集成终端中输入：
 
@@ -222,7 +222,7 @@ yarn install react-router-dom
 
 安装完成之后，在src目录下新建一个入口js文件index.js、一个路由组件文件router.js，再创建一个文件夹叫page用于存储页面组件文件，里面再建立一个文件叫做index.js，用于存储首页组件，这时项目结构如下：
 
-![项目结构](http://www.kindemh.cn/static/main/img/2018-6-4_0-46-41.png)
+![项目结构](../../img/2018/6/6-3-2.png)
 
 这时候我们先修改/src/page/index.js文件，在里面写一个首页的组件：
 
@@ -292,7 +292,7 @@ yarn start
 
 来运行调试服务器查看页面是否显示正常。如果看到这样的页面，上面有一个Antd样式的按钮：
 
-![页面](http://www.kindemh.cn/static/main/img/2018-6-4_0-57-24.png)
+![页面](../../img/2018/6/6-3-3.png)
 
 那么恭喜你，至少你到这一步之前的都成功了，如果没有成功，仔细回看步骤，看是否有做错的地方。
 
@@ -375,7 +375,7 @@ yarn estart
 
 即可看见效果，像这样：
 
-![Electron应用运行效果](http://www.kindemh.cn/static/main/img/2018-6-4_1-9-30.png)
+![Electron应用运行效果](../../img/2018/6/6-3-4.png)
 
 像平时写Web项目一样写原生UI吧，Enjoy!
 

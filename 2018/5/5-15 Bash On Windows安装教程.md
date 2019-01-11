@@ -7,13 +7,13 @@ Bash On Windows是微软的“Microsoft Love Linux”计划中重要的一环，
 首先你要确保你的Windows已经升级到创意者更新版本(1709)，因为只有创意者更新版本以后的Windows，Bash On Windows才真正发行，之前的都是测试版本。
 
 首先，你需要进入控制面板的程序与功能界面，点击启动或关闭Windows功能：
-![程序与功能](http://www.kindemh.cn/static/main/img/2018-5-15_19-35-10.png)
+![程序与功能](../../img/2018/5/5-15-0.png)
 
 然后，把适用于Windows的Linux子系统这一项勾上，并且点击确定
-![启动或关闭Windows功能](http://www.kindemh.cn/static/main/img/2018-5-15_19-37-12.png)
+![启动或关闭Windows功能](../../img/2018/5/5-15-1.png)
 
 接着，你就可以直接在商店下载你需要的Linux系统了，打开Windows Store，搜索Linux，可以看到很多Linux子系统：
-![Windows Store](http://www.kindemh.cn/static/main/img/2018-5-15_19-42-25.png)
+![Windows Store](../../img/2018/5/5-15-2.png)
 
 你可以任选一下载，我选的是Ubuntu 18.04，下载完成之后，你可以在Windows任务栏上面的搜索栏直接搜索Ubuntu(我是Ubuntu，如果你下了其他的你就搜其他的)，打开会要求你先重启电脑。
 
@@ -32,7 +32,7 @@ cmder的官网在这：
 [Cmder | Console Emulator](http://cmder.net/)
 
 你可以下载Mini版，也可以下载Full版本，都差不多，运行cmder之后点击右下角的汉堡形按钮，可以看到Settings，进去，像下面这样改动：
-![cmder settings](http://www.kindemh.cn/static/main/img/2018-5-15_19-50-48.png)
+![cmder settings](../../img/2018/5/5-15-3.png)
 
 代码如下：
 ```
@@ -42,4 +42,4 @@ cmder的官网在这：
 这样就可以让他启动的时候自动进入Bash，另外字体什么的就不提了，可以在上面设置，配色什么的也是。
 
 最后放一张我的Ubuntu子系统优化结果：
-![Ubuntu + Cmder](http://www.kindemh.cn/static/main/img/2018-5-15_19-52-19.png)
+![Ubuntu + Cmder](../../img/2018/5/5-15-4.png)
