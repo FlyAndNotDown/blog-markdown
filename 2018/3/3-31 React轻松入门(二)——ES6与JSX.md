@@ -1,4 +1,4 @@
-![React](http://www.kindemh.cn/static/main/img/2018-3-30_19-25-35.png)
+![React](../../img/2018/3/3-31-0.png)
 
 > 发布自[Kindem的博客](http://www.kindemh.cn/)，欢迎大家转载，但是要注意注明出处
 
@@ -20,7 +20,7 @@ ES6和JSX是React推荐使用的js语法特性和扩展语法，当然他们也�
 
 下面则开始介绍在React中常用的ES6新特性：
 
-## 1.1 let、const 
+## 1.1 let、const
 
 ES6增加了let和const来代替从前的var变量声明。
 
@@ -48,7 +48,7 @@ a = 2; // 报错，const声明的值无法被修改
 
 
 
-## 1.2 箭头函数 
+## 1.2 箭头函数
 
 箭头函数是ES6添加的一种新函数，用于快速构造一个匿名函数，在各种事件、回调等场合能够发挥大作用。
 
@@ -135,7 +135,7 @@ class Person {
         this.name = name;
         this.sex = sex;
     }
-    
+
     getInfo() {
         return {
             name: this.name;
@@ -183,15 +183,15 @@ class Student {
         this.name = name;
         this.number = number;
     }
-    
+
     getName() {
         return this.name;
     }
-    
+
     getNumber() {
         return this.number;
     }
-    
+
     getInfo() {
         return {
             name: this.name;
@@ -205,19 +205,19 @@ class CollegeStudent extends Student {
         super(name, number);
         this.collegeName = collegeName;
     }
-    
+
     getName() {
         return this.name;
     }
-    
+
     getNumber() {
         return this.number;
     }
-    
+
     getCollegeName() {
         return this.collegeName;
     }
-    
+
     getInfo() {
         return {
             name: this.name;
