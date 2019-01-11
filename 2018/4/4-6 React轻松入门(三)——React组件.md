@@ -1,4 +1,4 @@
-![React](http://www.kindemh.cn/static/main/img/2018-3-30_19-25-35.png)
+![React](../../img/public/react-logo.png)
 
 > 发布自[Kindem的博客](http://www.kindemh.cn/)，欢迎大家转载，但是要注意注明出处
 
@@ -57,7 +57,7 @@ npm run start
 yarn start
 ```
 来开启调试服务器，稍等之后输入命令行中告知你的url，就可以看到页面效果了：
-![Hello, World](http://www.kindemh.cn/static/main/img/2018-4-6_13-41-22.png)
+![Hello, World](../../img/2018/4/4-6-0.png)
 
 现在来解释一下代码，html文件我们自然不用关注，因为React的原则就是让你专注于js组件的构建，整个站点只有一个html文件，让我们看看index.js。
 

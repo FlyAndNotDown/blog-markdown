@@ -1,4 +1,4 @@
-![React](../../img/2018/3/3-31-0.png)
+![React](../../img/public/react-logo.png)
 
 > 发布自[Kindem的博客](http://www.kindemh.cn/)，欢迎大家转载，但是要注意注明出处
 

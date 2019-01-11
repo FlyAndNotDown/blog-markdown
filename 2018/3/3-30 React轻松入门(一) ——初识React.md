@@ -1,4 +1,4 @@
-![React](../../img/2018/3/3-30-0.png)
+![React-Logo](../../img/public/react-logo.png)
 
 > 发布自[Kindem的博客](http://www.kindemh.cn/)，欢迎大家转载，但是要注意注明出处
 
@@ -55,7 +55,7 @@ React最大的作用就是将页面元素组件化并且使之可重用，下面
 
 运行的效果就像这样：
 
-![运行截图1](../../img/2018/3/3-30-1.png)
+![Run-Screenshot](../../img/2018/3/3-30-0.png)
 
 
 
