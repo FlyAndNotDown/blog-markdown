@@ -62,7 +62,28 @@ function getDescription(source) {
  * @returns {Object} info object
  */
 function getInfoFromFileName(fileName) {
-    // TODO
+    // get the file name without file type
+    let newFileName = fileName.replace('.md', '');
+
+    // split the file name with ' '
+    let slices = newFileName.split(' ');
+
+    // get the date and the true name
+    let date = '';
+    let name = '';
+    for (let i = 0; i < slices.length; i++) {
+        if (i === 0) {
+            date += slices[i];
+        } else {
+            name += slices[i];
+        }
+    }
+
+    // return the object
+    return {
+        date: date,
+        name: name
+    }
 }
 
 /**
