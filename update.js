@@ -169,8 +169,8 @@ function reWrite(source) {
 
     // draw the table
     // summary info
-    result += '| 统计信息键 | 值 |\n';
-    result += '| :- | :- |\n';
+    result += '| 统计信息键 | 值 |\r\n';
+    result += '| :- | :- |\r\n';
 
     let count = 0;
     for (let i = 0; i < source.posts.length; i++) {
@@ -180,7 +180,7 @@ function reWrite(source) {
             }
         }
     }
-    result += `| 文章总数 | ${count} |\n\n`;
+    result += `| 文章总数 | ${count} |\r\n\r\n`;
 
     // post info
     // sort
@@ -190,9 +190,9 @@ function reWrite(source) {
         return yearB - yearA;
     });
     for (let i = 0; i < source.posts.length; i++) {
-        result += `#### ${source.posts[i].year}年\n\n`;
-        result += '| 日期 | 名称 | 链接 |\n';
-        result += '| :- | :- |\n';
+        result += `#### ${source.posts[i].year}年\r\n\r\n`;
+        result += '| 日期 | 名称 | 链接 |\r\n';
+        result += '| :- | :- |\r\n';
         // sort
         source.posts[i].posts.sort((a, b) => {
             let monthA = parseInt(a.month);
@@ -210,12 +210,12 @@ function reWrite(source) {
             });
             for (let k = 0; k < source.posts[i].posts[j].posts.length; k++) {
                 let object = source.posts[i].posts[j].posts[k];
-                result += `| ${object.date} | ${object.name} | [戳我传送](${object.link}) |\n`;
+                result += `| ${object.date} | ${object.name} | [戳我传送](${object.link}) |\r\n`;
             }
         }
-        result += '\n';
+        result += '\r\n';
     }
-    result += '\n\n';
+    result += '\r\n\r\n';
 
     // rewrite the string to the file
     fs.writeFileSync(config.sourcePath, result);
