@@ -1,5 +1,5 @@
 /**
- * blog-markdown repo's README.md update script
+ * /update.js blog-markdown repo's README.md update script
  * @author John Kindem
  * @version v1.0
  */
@@ -15,32 +15,79 @@ const config = {
     // README.md source file path
     sourcePath: './README.md',
     // index block start symbol, after the symbol is the index table(s)
-    indexBlockStartSymbol: '# 📇目录'
+    indexBlockStartSymbol: '# 📇目录',
+
+    // some regex
+    regex: {
+        year: /^[0-9]{4}$/,
+        month: /^[0-9]{2}$/
+    }
 };
 
 /**
  * read string from source file
- * @returns {string} string in source file
+ * @returns {Object} source object
  */
 function readSource() {
     // read source and return result
-    return fs.readFileSync(config.sourcePath);
+    return {
+        // all the string in the source
+        all: fs.readFileSync(config.sourcePath),
+        // description block of source
+        description: '',
+        // post structure list
+        posts: []
+    };
 }
 
 /**
  * split description block of source
- * @param {string} source string in source file
- * @returns {string} description block of source string
+ * @param {Object} source source object
  */
 function getDescription(source) {
     // if not found the index block start symbol
-    if (source.indexOf(config.indexBlockStartSymbol) === -1) {
-        // return a empty string
-        return '';
+    if (source.all.indexOf(config.indexBlockStartSymbol) === -1) {
+        // return
+        return;
     }
 
     // return half which before the index block start symbol
-    return source.split(config.indexBlockStartSymbol)[0];
+    source.description = source.all.split(config.indexBlockStartSymbol)[0];
+}
+
+/**
+ * read post file to the structure list
+ * @param {Object} source source object
+ */
+function readPosts(source) {
+    // at first, read all the objects in root path
+    let rootPathObjects = fs.readdirSync('.');
+
+    // for each root path object, do something
+    for (let i = 0; i < rootPathObjects.length; i++) {
+        // judge if it is a year dir
+        if (fs.statSync(`./${rootPathObjects[i]}`).isDirectory() && rootPathObjects[i].match(config.regex.year)) {
+            // if it is, ready a object
+            let yearObject = {
+                year: rootPathObjects[i],
+                posts: []
+            };
+
+            // read all the year path object
+            let yearPathObjects = fs.readdirSync(`./${rootPathObjects[i]}`);
+
+            // for each year path object, do something
+            for (let j = 0; j < yearPathObjects.length; j++) {
+                // judge if it is a month dir
+                if (fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}`).isDirectory() && yearPathObjects[j].match(config.regex.month)) {
+                    // TODO
+                }
+            }
+
+            // append the temp object to posts list
+            source.posts.push(yearObject);
+        }
+    }
 }
 
 /**
@@ -51,7 +98,5 @@ function getDescription(source) {
     let source = readSource();
 
     // get description of source string
-    let description = getDescription(source);
-
-    // TODO finish it someday
+    getDescription(source);
 })();
