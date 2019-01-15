@@ -71,11 +71,12 @@ function getInfoFromFileName(fileName) {
     // get the date and the true name
     let date = '';
     let name = '';
+    let count = 0;
     for (let i = 0; i < slices.length; i++) {
         if (i === 0) {
             date += slices[i];
         } else {
-            name += slices[i];
+            name += ++count === 0 ? slices[i] : slices[i] + ' ';
         }
     }
 
@@ -168,7 +169,6 @@ function reWrite(source) {
 
     // draw the table
     // summary info
-    result += '统计信息：\n\n';
     result += '| 统计信息键 | 值 |\n';
     result += '| - | - |\n';
 
@@ -183,9 +183,8 @@ function reWrite(source) {
     result += `| 文章总数 | ${count} |\n\n`;
 
     // post info
-    result += '文章目录: \n\n';
     for (let i = 0; i < source.posts.length; i++) {
-        result += `> ${source.posts[i].year}年\n\n`;
+        result += `#### ${source.posts[i].year}年\n\n`;
         result += '| 日期 | 名称 | 链接 |\n';
         result += '| - | - |\n';
         for (let j = 0; j < source.posts[i].posts.length; j++) {
