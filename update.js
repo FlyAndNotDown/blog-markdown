@@ -20,7 +20,8 @@ const config = {
     // some regex
     regex: {
         year: /^[0-9]{4}$/,
-        month: /^[0-9]{2}$/
+        month: /^[0-9]{2}$/,
+        postFile: /^.+\.md$/
     }
 };
 
@@ -56,6 +57,15 @@ function getDescription(source) {
 }
 
 /**
+ * get some info from file name and return a object
+ * @param {string} fileName file name
+ * @returns {Object} info object
+ */
+function getInfoFromFileName(fileName) {
+    // TODO
+}
+
+/**
  * read post file to the structure list
  * @param {Object} source source object
  */
@@ -66,7 +76,10 @@ function readPosts(source) {
     // for each root path object, do something
     for (let i = 0; i < rootPathObjects.length; i++) {
         // judge if it is a year dir
-        if (fs.statSync(`./${rootPathObjects[i]}`).isDirectory() && rootPathObjects[i].match(config.regex.year)) {
+        if (
+            fs.statSync(`./${rootPathObjects[i]}`).isDirectory() &&
+            rootPathObjects[i].match(config.regex.year)
+        ) {
             // if it is, ready a object
             let yearObject = {
                 year: rootPathObjects[i],
@@ -79,7 +92,10 @@ function readPosts(source) {
             // for each year path object, do something
             for (let j = 0; j < yearPathObjects.length; j++) {
                 // judge if it is a month dir
-                if (fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}`).isDirectory() && yearPathObjects[j].match(config.regex.month)) {
+                if (
+                    fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}`).isDirectory() &&
+                    yearPathObjects[j].match(config.regex.month)
+                ) {
                     // if it is, ready a object
                     let monthObject = {
                         month: yearPathObjects[j],
@@ -91,8 +107,18 @@ function readPosts(source) {
 
                     // for each month path object, do something
                     for (let k = 0; k < monthPathObjects.length; k++) {
-                        // TODO
+                        // judge if it is a post file
+                        if (
+                            fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}/${monthPathObjects[k]}`).isFile() &&
+                            monthPathObjects[k].match(config.regex.postFile)
+                        ) {
+                            // if it is, get the info object and push it to posts list
+                            monthObject.posts.push(getInfoFromFileName(monthPathObjects[k]));
+                        }
                     }
+
+                    // append the temp object to posts list
+                    yearObject.posts.push(monthObject);
                 }
             }
 
