@@ -190,8 +190,9 @@ function reWrite(source) {
         return yearB - yearA;
     });
     for (let i = 0; i < source.posts.length; i++) {
+        result += `### ${source.posts[i].year}年\n`;
         result += '| 日期 | 名称 | 链接 |\n';
-        result += '| :- | :- |\n';
+        result += '| :- | :- | :- |\n';
         // sort
         source.posts[i].posts.sort((a, b) => {
             let monthA = parseInt(a.month);
