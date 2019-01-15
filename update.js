@@ -150,6 +150,39 @@ function readPosts(source) {
 }
 
 /**
+ * re write the source file
+ * @param {Object} source source object
+ * @returns {string} string after re write
+ */
+function reWrite(source) {
+    let result = '';
+
+    // at first, re write the description block
+    result += source.description;
+    // re write the index symbol
+    result += config.indexBlockStartSymbol;
+
+    // draw the table
+    // summary info
+    result += '统计信息：\n';
+    result += '| - | - |';
+    result += '| 统计信息键 | 值 |';
+    let count = 0;
+    for (let i = 0; i < source.posts.length; i++) {
+        for (let j = 0; j < source.posts[i].posts.length; j++) {
+            for (let k = 0; k < source.posts[i].posts[j].length; k++) {
+                count ++;
+            }
+        }
+    }
+    result += `| 文章总数 | ${count} |`;
+    result += '\n';
+
+    // post info
+    // TODO
+}
+
+/**
  * main function
  */
 (function() {
@@ -158,4 +191,7 @@ function readPosts(source) {
 
     // get description of source string
     getDescription(source);
+
+    // read posts
+    readPosts(source);
 })();
