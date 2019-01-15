@@ -20,7 +20,7 @@ const config = {
     // some regex
     regex: {
         year: /^[0-9]{4}$/,
-        month: /^[0-9]{2}$/,
+        month: /^[0-9]{1,2}$/,
         postFile: /^.+\.md$/
     }
 };
@@ -133,6 +133,8 @@ function readPosts(source) {
                             fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}/${monthPathObjects[k]}`).isFile() &&
                             monthPathObjects[k].match(config.regex.postFile)
                         ) {
+                            console.log('[log] find a new post:', monthPathObjects[k]);
+
                             // if it is, get the info object and push it to posts list
                             monthObject.posts.push(getInfoFromFileName(monthPathObjects[k]));
                         }
@@ -167,10 +169,11 @@ function reWrite(source) {
     result += '统计信息：\n';
     result += '| - | - |\n';
     result += '| 统计信息键 | 值 |\n';
+
     let count = 0;
     for (let i = 0; i < source.posts.length; i++) {
         for (let j = 0; j < source.posts[i].posts.length; j++) {
-            for (let k = 0; k < source.posts[i].posts[j].length; k++) {
+            for (let k = 0; k < source.posts[i].posts[j].posts.length; k++) {
                 count ++;
             }
         }
