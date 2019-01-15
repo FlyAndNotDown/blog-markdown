@@ -73,14 +73,26 @@ function readPosts(source) {
                 posts: []
             };
 
-            // read all the year path object
+            // read all the year path objects
             let yearPathObjects = fs.readdirSync(`./${rootPathObjects[i]}`);
 
             // for each year path object, do something
             for (let j = 0; j < yearPathObjects.length; j++) {
                 // judge if it is a month dir
                 if (fs.statSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}`).isDirectory() && yearPathObjects[j].match(config.regex.month)) {
-                    // TODO
+                    // if it is, ready a object
+                    let monthObject = {
+                        month: yearPathObjects[j],
+                        posts: []
+                    };
+
+                    // read all the month path objects
+                    let monthPathObjects = fs.readdirSync(`./${rootPathObjects[i]}/${yearPathObjects[j]}`);
+
+                    // for each month path object, do something
+                    for (let k = 0; k < monthPathObjects.length; k++) {
+                        // TODO
+                    }
                 }
             }
 
