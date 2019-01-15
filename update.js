@@ -183,17 +183,37 @@ function reWrite(source) {
     result += `| 文章总数 | ${count} |\n\n`;
 
     // post info
+    // sort
+    source.posts.sort((a, b) => {
+        let yearA = parseInt(a.year);
+        let yearB = parseInt(b.year);
+        return yearB - yearA;
+    });
     for (let i = 0; i < source.posts.length; i++) {
         result += `#### ${source.posts[i].year}年\n\n`;
         result += '| 日期 | 名称 | 链接 |\n';
         result += '| - | - |\n';
+        // sort
+        source.posts[i].posts.sort((a, b) => {
+            let monthA = parseInt(a.month);
+            let monthB = parseInt(b.month);
+            return monthB - monthA;
+        });
         for (let j = 0; j < source.posts[i].posts.length; j++) {
+            // sort
+            source.posts[i].posts[j].posts.sort((a, b) => {
+                let splitResultA = a.date.split('-');
+                let splitResultB = b.date.split('-');
+                let timeA = parseInt(splitResultA[0]) * 1000 + parseInt(splitResultA[1]);
+                let timeB = parseInt(splitResultB[0]) * 1000 + parseInt(splitResultB[1]);
+                return timeB - timeA;
+            });
             for (let k = 0; k < source.posts[i].posts[j].posts.length; k++) {
                 let object = source.posts[i].posts[j].posts[k];
                 result += `| ${object.date} | ${object.name} | [戳我传送](${object.link}) |\n`;
             }
         }
-        result += '\n\n';
+        result += '\n';
     }
     result += '\n\n';
 
