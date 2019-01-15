@@ -33,7 +33,7 @@ function readSource() {
     // read source and return result
     return {
         // all the string in the source
-        all: fs.readFileSync(config.sourcePath),
+        all: fs.readFileSync(config.sourcePath).toString(),
         // description block of source
         description: '',
         // post structure list
@@ -165,8 +165,8 @@ function reWrite(source) {
     // draw the table
     // summary info
     result += '统计信息：\n';
-    result += '| - | - |';
-    result += '| 统计信息键 | 值 |';
+    result += '| - | - |\n';
+    result += '| 统计信息键 | 值 |\n';
     let count = 0;
     for (let i = 0; i < source.posts.length; i++) {
         for (let j = 0; j < source.posts[i].posts.length; j++) {
@@ -175,14 +175,14 @@ function reWrite(source) {
             }
         }
     }
-    result += `| 文章总数 | ${count} |`;
+    result += `| 文章总数 | ${count} |\n`;
     result += '\n';
 
     // post info
     // TODO
 
     // rewrite the string to the file
-    fs.writeFileSync(sourcePath, result);
+    fs.writeFileSync(config.sourcePath, result);
 }
 
 /**
