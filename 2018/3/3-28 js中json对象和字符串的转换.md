@@ -1,9 +1,0 @@
-# json对象转json字符串
-```
-jsonStr = JSON.stringify(jsonObj);
-```
-
-# json字符串转json对象
-```
-jsonObj = JSON.parse(jsonStr);
-```
