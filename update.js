@@ -180,6 +180,9 @@ function reWrite(source) {
 
     // post info
     // TODO
+
+    // rewrite the string to the file
+    fs.writeFileSync(sourcePath, result);
 }
 
 /**
@@ -194,4 +197,7 @@ function reWrite(source) {
 
     // read posts
     readPosts(source);
+
+    // rewrite
+    reWrite(source);
 })();
