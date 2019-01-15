@@ -39,7 +39,7 @@ function getDescription(source) {
         return '';
     }
 
-    // return half whick before the index block start symbol
+    // return half which before the index block start symbol
     return source.split(config.indexBlockStartSymbol)[0];
 }
 
