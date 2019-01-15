@@ -4,6 +4,11 @@
  * @version v1.0
  */
 
+// replaceAll function define
+String.prototype.replaceAll = function(word, replaceTo){
+    return this.replace(new RegExp(word, 'gm'), replaceTo);
+};
+
 // import modules
 let fs = require('fs');
 
@@ -210,7 +215,7 @@ function reWrite(source) {
             });
             for (let k = 0; k < source.posts[i].posts[j].posts.length; k++) {
                 let object = source.posts[i].posts[j].posts[k];
-                result += `| ${object.date} | ${object.name} | [戳我传送](${object.link.replace(' ', '%20')}) |\n`;
+                result += `| ${object.date} | ${object.name} | [戳我传送](${object.link.replaceAll(' ', '%20')}) |\n`;
             }
         }
         result += '\n';
