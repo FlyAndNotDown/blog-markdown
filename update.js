@@ -170,7 +170,7 @@ function reWrite(source) {
     // draw the table
     // summary info
     result += '| 统计信息键 | 值 |\n';
-    result += '| - | - |\n';
+    result += '| :- | :- |\n';
 
     let count = 0;
     for (let i = 0; i < source.posts.length; i++) {
@@ -192,7 +192,7 @@ function reWrite(source) {
     for (let i = 0; i < source.posts.length; i++) {
         result += `#### ${source.posts[i].year}年\n\n`;
         result += '| 日期 | 名称 | 链接 |\n';
-        result += '| - | - |\n';
+        result += '| :- | :- |\n';
         // sort
         source.posts[i].posts.sort((a, b) => {
             let monthA = parseInt(a.month);
