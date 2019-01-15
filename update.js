@@ -15,7 +15,7 @@ const config = {
     // README.md source file path
     sourcePath: './README.md',
     // index block start symbol, after the symbol is the index table(s)
-    indexBlockStartSymbol: '# 📇目录\n',
+    indexBlockStartSymbol: '# 📇 目录\n',
 
     // some regex
     regex: {
