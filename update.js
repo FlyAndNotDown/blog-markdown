@@ -15,7 +15,7 @@ const config = {
     // README.md source file path
     sourcePath: './README.md',
     // index block start symbol, after the symbol is the index table(s)
-    indexBlockStartSymbol: '# 📇目录',
+    indexBlockStartSymbol: '# 📇目录\n',
 
     // some regex
     regex: {
@@ -136,7 +136,9 @@ function readPosts(source) {
                             console.log('[log] find a new post:', monthPathObjects[k]);
 
                             // if it is, get the info object and push it to posts list
-                            monthObject.posts.push(getInfoFromFileName(monthPathObjects[k]));
+                            let postObject = getInfoFromFileName(monthPathObjects[k]);
+                            postObject.link = `./${rootPathObjects[i]}/${yearPathObjects[j]}/${monthPathObjects[k]}`;
+                            monthObject.posts.push(postObject);
                         }
                     }
 
@@ -178,11 +180,23 @@ function reWrite(source) {
             }
         }
     }
-    result += `| 文章总数 | ${count} |\n`;
-    result += '\n';
+    result += `| 文章总数 | ${count} |\n\n`;
 
     // post info
-    // TODO
+    result += '文章目录: \n';
+    for (let i = 0; i < source.posts.length; i++) {
+        result += `> ${source.posts[i].year}年\n\n`;
+        result += '| - | - |\n';
+        result += '| 日期 | 名称 | 链接 |\n';
+        for (let j = 0; j < source.posts[i].posts.length; j++) {
+            for (let k = 0; k < source.posts[i].posts[j].posts.length; k++) {
+                let object = source.posts[i].posts[j].posts[k];
+                result += `| ${object.date} | ${object.name} | ${object.link} |\n`;
+            }
+        }
+        result += '\n\n';
+    }
+    result += '\n\n';
 
     // rewrite the string to the file
     fs.writeFileSync(config.sourcePath, result);
