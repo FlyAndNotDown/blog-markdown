@@ -60,6 +60,10 @@ sudo git config --global credential.helper store
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+# 更改 ~/.confg 拥有者，否则试用 npm 可能会提示 Permisson Denied
+sudo chown -R $user ~/.npm
+sudo chown -R $user ~/.config
 ```
 
 # ☕杂项
