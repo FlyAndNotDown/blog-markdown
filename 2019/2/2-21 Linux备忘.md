@@ -45,14 +45,14 @@ vim ~/.zshrc
 
 ```
 # 配置用户名邮箱
-git config --global user.name "$username"
-git config --global user.email "$email"
+sudo git config --global user.name "$username"
+sudo git config --global user.email "$email"
 
 # 默认编辑器
-git config --global core.editor vim
+sudo git config --global core.editor vim
 
 # 自动储存用户名和密码
-git config --global credential.helper store
+sudo git config --global credential.helper store
 ```
 
 `Node.js` 安装，可以参考 [Install Node.js via package manager](https://nodejs.org/en/download/package-manager/)：
