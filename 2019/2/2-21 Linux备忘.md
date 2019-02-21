@@ -66,6 +66,9 @@ sudo chown -R $user ~/.npm
 sudo chown -R $user ~/.config
 ```
 
+`MySQL(Debian/Ubuntu)` 安装：[Debian9安装MySQL](https://www.jianshu.com/p/40b770d86a7b)
+
+
 # ☕杂项
 更改主机名：
 
