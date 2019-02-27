@@ -81,7 +81,7 @@ sudo vim /etc/hostname
 sudo hostname $hostname
 ```
 
-`systemd` 目录：
+`systemctl` 目录：
 
 ```
 /lib/systemd/system
